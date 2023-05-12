@@ -49,10 +49,8 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-          - StandaloneLinux64
-          - iOS
           - Android
-          - WebGL
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -71,7 +69,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Build-${{ matrix.targetPlatform }}
-          path: build
+          path: release
 
   buildForWindows:
     needs: build
@@ -100,4 +98,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Build-${{ matrix.targetPlatform }}
-          path: build
+          path: release
